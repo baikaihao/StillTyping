@@ -18,10 +18,14 @@
 
 ## 按原来的习惯打字
 
-```text
-候选词尚未确认 → 回车 → 确认输入，继续编辑
-文字已经确认   → 回车 → 正常搜索或发送
-```
+<p align="center">
+  <picture>
+    <source media="(prefers-reduced-motion: reduce)" srcset="docs/assets/usage.png">
+    <img src="docs/assets/usage.gif" width="960" alt="操作示意：第一次回车确认输入，下一次回车正常发送">
+  </picture>
+</p>
+
+<p align="center"><sub>操作示意：回车确认输入，下一次回车正常发送。</sub></p>
 
 输入法原本怎样确认文字，就仍然怎样确认。空格选词、数字选词、英文直输，以及 Shift / ⌘ / ⌃ / ⌥ + 回车等快捷键，都保留原有行为。
 
