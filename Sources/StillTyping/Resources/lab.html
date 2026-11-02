@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="color-scheme" content="light dark">
+<style>
+:root{font:13px -apple-system,sans-serif;color-scheme:light dark;color:light-dark(#222,#ddd);background:transparent}body{margin:0;padding:12px 2px}label{display:block;margin-bottom:8px;color:light-dark(#555,#aaa)}input{box-sizing:border-box;width:100%;font:14px -apple-system;padding:7px 9px;border:1px solid light-dark(#bbb,#666);border-radius:5px;background:light-dark(#fff,#252525);color:inherit;outline-color:AccentColor}
+</style><body>
+<label for="query">Web search field</label><input id="query" placeholder="Type hello using Pinyin, then press Return" autocomplete="off" spellcheck="false">
+<script>
+let count=0,composing=false;window.testPhase='keydown';
+const query=document.getElementById('query');
+function publish(){window.webkit.messageHandlers.lab.postMessage({count,composing});}
+for(const type of ['compositionstart','compositionend','keydown','keyup'])query.addEventListener(type,e=>{
+ if(type==='compositionstart')composing=true;if(type==='compositionend')composing=false;
+ const enter=e.key==='Enter';
+ if(type===window.testPhase&&enter){count++;e.preventDefault();}publish();
+});
+window.resetTest=()=>{query.blur();query.value='';composing=false;count=0;publish();query.focus();};publish();
+</script></body></html>

@@ -1,0 +1,44 @@
+# Swift / Xcode 构建产物与个人配置
+.build/
+.swiftpm/
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.xcarchive/
+*.xcresult/
+*.xcactivitylog
+*.dSYM/
+*.dSYM.zip
+*.app/
+*.ipa
+
+# macOS 文件
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100/
+.Trashes/
+
+# 本地依赖、缓存与日志
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.cache/
+*.log
+
+# 本地环境配置
+.env
+.env.*
+!.env.example
+
+# 素材压缩包与视频临时输出
+Design/*-kit.zip
+Design/Video/silent-master.mp4
+Design/Video/soundtrack.wav
+Design/Video/previews/

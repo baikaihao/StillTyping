@@ -1,0 +1,8 @@
+{
+  "name": "stilltyping-logo-exports",
+  "private": true,
+  "description": "Local renderer for the StillTyping vector identity",
+  "dependencies": {
+    "@resvg/resvg-js": "2.6.2"
+  }
+}
