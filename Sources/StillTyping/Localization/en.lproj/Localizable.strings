@@ -13,6 +13,9 @@
 "Connect" = "Connect";
 "Connect browsers" = "Connect browsers";
 "Connected" = "Connected";
+"Connecting…" = "Connecting…";
+"Reconnecting…" = "Reconnecting…";
+"Browsers you connect will reconnect automatically after being reopened or temporarily disconnected." = "Browsers you connect will reconnect automatically after being reopened or temporarily disconnected.";
 "Could not create the browser connection script." = "Could not create the browser connection script.";
 "Coverage" = "Coverage";
 "Cross-origin embedded fields are not covered yet. You control the browser settings; the app does not read what you type." = "Cross-origin embedded fields are not covered yet. You control the browser settings; the app does not read what you type.";
@@ -76,3 +79,9 @@
 "App appearance" = "App appearance";
 "Hide Dock icon" = "Hide Dock icon";
 "Use the menu bar to reopen the window when the Dock icon is hidden." = "Use the menu bar to reopen the window when the Dock icon is hidden.";
+"Startup" = "Startup";
+"Launch at login" = "Launch at login";
+"Automatically open StillTyping!!! when you sign in to your Mac." = "Automatically open StillTyping!!! when you sign in to your Mac.";
+"Allow StillTyping!!! in System Settings to finish enabling launch at login." = "Allow StillTyping!!! in System Settings to finish enabling launch at login.";
+"Open Login Items Settings…" = "Open Login Items Settings…";
+"Could not update the login item: %@" = "Could not update the login item: %@";

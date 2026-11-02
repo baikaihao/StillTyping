@@ -10,7 +10,10 @@ struct StillTypingApp: App {
     var body: some Scene {
         Window("StillTyping!!!", id: "main") {
             SettingsView(model: model)
-                .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in model.refresh() }
+                .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+                    model.refresh()
+                    model.loginItem.refresh()
+                }
         }
         .windowStyle(.titleBar)
         .defaultSize(width: 1020, height: 700)

@@ -1,4 +1,5 @@
 import AppKit
+import CoreServices
 import StillTypingCore
 
 nonisolated enum AutomationResult: Sendable {
@@ -17,19 +18,40 @@ actor BrowserAutomation {
         _ = NSAppleScript(source: "return true")?.executeAndReturnError(&error)
     }
 
-    func execute(_ javascript: String, browser: BrowserKind, processIdentifier: Int32) -> AutomationResult {
-        perform(javascript: javascript, browser: browser, processIdentifier: processIdentifier)
+    func execute(_ javascript: String, browser: BrowserKind, processIdentifier: Int32,
+                 allowPermissionPrompt: Bool = false) -> AutomationResult {
+        perform(javascript: javascript, browser: browser, processIdentifier: processIdentifier,
+                allowPermissionPrompt: allowPermissionPrompt)
     }
 
     func windowState(browser: BrowserKind, processIdentifier: Int32) -> AutomationResult {
-        perform(javascript: nil, browser: browser, processIdentifier: processIdentifier)
+        perform(javascript: nil, browser: browser, processIdentifier: processIdentifier, allowPermissionPrompt: false)
     }
 
-    private func perform(javascript: String?, browser: BrowserKind, processIdentifier: Int32) -> AutomationResult {
+    func hasPermission(browser: BrowserKind, processIdentifier: Int32) -> Bool {
+        permissionStatus(browser: browser, processIdentifier: processIdentifier) == noErr
+    }
+
+    private func permissionStatus(browser: BrowserKind, processIdentifier: Int32) -> OSStatus {
+        guard let application = NSRunningApplication(processIdentifier: processIdentifier),
+              !application.isTerminated, application.bundleIdentifier == browser.bundleID else { return OSStatus(procNotFound) }
+        let target = NSAppleEventDescriptor(processIdentifier: processIdentifier)
+        // Background recovery must never request a new Automation grant.
+        return AEDeterminePermissionToAutomateTarget(target.aeDesc, AEEventClass(typeWildCard), AEEventID(typeWildCard), false)
+    }
+
+    private func perform(javascript: String?, browser: BrowserKind, processIdentifier: Int32,
+                         allowPermissionPrompt: Bool) -> AutomationResult {
         // Queued work must never reconnect to a new browser process or relaunch a closed browser.
         guard let application = NSRunningApplication(processIdentifier: processIdentifier),
               !application.isTerminated, application.bundleIdentifier == browser.bundleID else {
             return .success("{\"state\":\"not-running\"}")
+        }
+        if !allowPermissionPrompt {
+            let status = permissionStatus(browser: browser, processIdentifier: processIdentifier)
+            guard status == noErr else {
+                return .failure(code: Int(status), message: L10n.text("Automation permission required"))
+            }
         }
         let vocabulary: BrowserScriptingDefinition
         if browser == .safari {

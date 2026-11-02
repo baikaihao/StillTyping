@@ -61,6 +61,22 @@ struct SettingsView: View {
                 Text(L10n.text("Use the menu bar to reopen the window when the Dock icon is hidden."))
                     .font(.callout).foregroundStyle(.secondary)
             }
+            SettingsSection(title: L10n.text("Startup"), systemImage: "power") {
+                Toggle(L10n.text("Launch at login"), isOn: Binding(
+                    get: { model.loginItem.isEnabled }, set: { model.loginItem.setEnabled($0) }
+                ))
+                .disabled(model.loginItem.isUpdating)
+                Text(L10n.text("Automatically open StillTyping!!! when you sign in to your Mac."))
+                    .font(.callout).foregroundStyle(.secondary)
+                if model.loginItem.requiresApproval {
+                    Text(L10n.text("Allow StillTyping!!! in System Settings to finish enabling launch at login."))
+                        .font(.callout).foregroundStyle(.secondary)
+                    Button(L10n.text("Open Login Items Settings…")) { model.loginItem.openSystemSettings() }
+                }
+                if let error = model.loginItem.errorMessage {
+                    Text(error).font(.callout).foregroundStyle(.red).textSelection(.enabled)
+                }
+            }
             SettingsSection(title: L10n.text("Browser connections"), systemImage: "globe") {
                 ForEach(model.connections.filter { $0.browser.isPrimary || $0.connected }) { connection in
                     browserStatus(connection)
@@ -91,6 +107,8 @@ struct SettingsView: View {
                     .padding(.top, 8)
                 }
                 .accessibilityIdentifier("moreBrowsers")
+                Text(L10n.text("Browsers you connect will reconnect automatically after being reopened or temporarily disconnected."))
+                    .font(.caption).foregroundStyle(.secondary)
             }
             SettingsSection(title: L10n.text("First-time setup"), systemImage: "slider.horizontal.3") {
                 Text(L10n.text("Enable JavaScript from Apple Events in your browser, then click “Connect” above."))

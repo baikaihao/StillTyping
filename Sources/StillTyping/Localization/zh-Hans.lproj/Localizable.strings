@@ -13,6 +13,9 @@
 "Connect" = "连接";
 "Connect browsers" = "连接浏览器";
 "Connected" = "连接正常";
+"Connecting…" = "正在连接…";
+"Reconnecting…" = "正在重新连接…";
+"Browsers you connect will reconnect automatically after being reopened or temporarily disconnected." = "已选择连接的浏览器，在重新打开或临时断连后会自动重连。";
 "Could not create the browser connection script." = "无法创建浏览器连接脚本";
 "Coverage" = "保护范围";
 "Cross-origin embedded fields are not covered yet. You control the browser settings; the app does not read what you type." = "跨域内嵌输入框暂不覆盖。浏览器设置由你开启，App 不读取输入文字。";
@@ -76,3 +79,9 @@
 "App appearance" = "应用外观";
 "Hide Dock icon" = "隐藏程序坞图标";
 "Use the menu bar to reopen the window when the Dock icon is hidden." = "隐藏后，可通过菜单栏重新打开窗口。";
+"Startup" = "启动";
+"Launch at login" = "登录时启动";
+"Automatically open StillTyping!!! when you sign in to your Mac." = "登录 Mac 后自动打开 StillTyping!!!。";
+"Allow StillTyping!!! in System Settings to finish enabling launch at login." = "请在系统设置中允许 StillTyping!!! 登录时启动，以完成设置。";
+"Open Login Items Settings…" = "打开登录项设置…";
+"Could not update the login item: %@" = "无法更新登录项：%@";
