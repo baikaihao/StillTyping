@@ -18,6 +18,10 @@
 
 工程包含 `StillTyping` App、`StillTypingCore` 框架、`StillTypingCoreTests` 测试三个 target，并提供共享的运行、测试和归档 scheme。本机开发采用 ad-hoc 签名，无需配置开发者团队。
 
+应用版本与构建号在 App target 的 **General → Version / Build** 中设置，分别对应
+`MARKETING_VERSION` 和 `CURRENT_PROJECT_VERSION`。`Packaging/Info.plist` 引用这两个构建设置，
+运行和归档共用相同的版本来源。修改后需重新构建或归档，已有归档保留生成时的版本。
+
 ## 生成独立 App
 
 在项目根目录运行：
@@ -65,7 +69,8 @@ node --test Tests/WebGuard/guard.test.cjs
 | `Sources/StillTyping/Localization` | 简体中文与英文本地化资源 |
 | `Sources/StillTyping/Assets.xcassets/AppIcon.appiconset` | Xcode Debug / Release 应用图标 |
 | `Tests` | Swift 与 JavaScript 测试 |
-| `Design/Logo` | Logo 源文件与导出素材 |
+| `docs/assets` | README 的 Logo 与使用示意图 |
+| `docs/assets/app-icon.svg` | 应用图标的矢量源文件 |
 
 ## 实现概要
 

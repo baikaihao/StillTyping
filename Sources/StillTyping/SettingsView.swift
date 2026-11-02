@@ -156,7 +156,7 @@ struct SettingsView: View {
             Text(L10n.text("About")).font(.largeTitle.bold())
             SettingsSection(title: "StillTyping!!!", systemImage: "character.cursor.ibeam") {
                 Text(L10n.text("I’m still typing."))
-                Text(L10n.format("Version %@ · Development build", Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.2.0")).font(.callout).foregroundStyle(.secondary)
+                Text(L10n.format("Version %@ · Development build", Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—")).font(.callout).foregroundStyle(.secondary)
             }
             SettingsSection(title: L10n.text("Privacy"), systemImage: "lock.shield") {
                 Text(L10n.text("Everything is processed on your Mac."))

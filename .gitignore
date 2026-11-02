@@ -25,10 +25,6 @@ xcuserdata/
 
 # 本地依赖、缓存与日志
 node_modules/
-__pycache__/
-*.py[cod]
-.venv/
-venv/
 .cache/
 *.log
 
@@ -36,9 +32,3 @@ venv/
 .env
 .env.*
 !.env.example
-
-# 素材压缩包与视频临时输出
-Design/*-kit.zip
-Design/Video/silent-master.mp4
-Design/Video/soundtrack.wav
-Design/Video/previews/

@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="Design/Logo/stilltyping-logo-dark.svg">
-    <img src="Design/Logo/stilltyping-logo.svg" width="480" alt="StillTyping!!!">
+    <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark.svg">
+    <img src="docs/assets/logo.svg" width="480" alt="StillTyping!!!">
   </picture>
 </p>
 
@@ -60,7 +60,7 @@
 
 目前已接入 **Safari、Chrome、Microsoft Edge、Arc、Brave、Vivaldi、Opera**。保护作用于已连接浏览器当前标签页的顶层网页；新开、刷新或切换网页后，可能有约 1 秒的安装间隙。
 
-项目处于 **0.2.0 开发验证阶段**，以 macOS 系统拼音为首轮适配目标。真实输入法与网页的端到端验收尚未完成；其他中文输入法及日文、韩文输入法仍需分别验证。已知限制与验证状态见 [兼容性说明](docs/COMPATIBILITY.md)。
+项目处于开发验证阶段，以 macOS 系统拼音为首轮适配目标。真实输入法与网页的端到端验收尚未完成；其他中文输入法及日文、韩文输入法仍需分别验证。已知限制与验证状态见 [兼容性说明](docs/COMPATIBILITY.md)。
 
 ## 隐私
 
